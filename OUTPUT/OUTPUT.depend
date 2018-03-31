@@ -1,0 +1,5 @@
+# depslib dependency file v1.0
+1522046769 source:d:\basicpg\output\main.cpp
+	<iostream>
+	<bits/stdc++.h>
+
