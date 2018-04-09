@@ -1,0 +1,5 @@
+# depslib dependency file v1.0
+1523195041 source:d:\acm\mystical\main.cpp
+	<iostream>
+	<bits/stdc++.h>
+
