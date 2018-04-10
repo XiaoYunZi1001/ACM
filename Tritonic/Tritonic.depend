@@ -1,0 +1,5 @@
+# depslib dependency file v1.0
+1523286018 source:d:\acm\tritonic\main.cpp
+	<iostream>
+	<bits/stdc++.h>
+
