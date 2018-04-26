@@ -10,7 +10,7 @@ def compute_error(b,m,data):
     #   tatalError += (y-(m*x+b))**2
     # second way
     x = data[:,0]
-    y = data[;,1]
+    y = data[:,1]
     totakError = (y-m*x-b)**2
     totalError = np.sum(totalError,axis=0)
     return totalError/float(len(data))
@@ -23,7 +23,7 @@ def optimizer(data,starting_b,starting_m,learning_rate,num_iter):
         # update b and m with the new more accurate b and m by performing
         #  thie gradient step
         b,m = compute_gradient(b,m,data,learning_rate)
-        if i%100 ==0
+        if i % 100 == 0 :
             print('iter{0}:error={1}'.format(i,compute_error(b,m,data)))
     return [b,m]
 
@@ -60,12 +60,12 @@ def compute_gradient(b_current,m_current,data,learning_rate):
 
 def plot_data(data,b,m):
     # plotting
-    x = data[;,0]
+    x = data[:,0]
     y = data[:,1]
     y_predict = m * x + b
     pylab.plot(x,y,'o')
     pylab.plot(x,y,'k-')
-    pylab.show()
+    #pylab.show()
 
 def Linear_regression():
     # get train data
@@ -94,6 +94,10 @@ def Linear_regression():
 
     # plot result
     plot_data(data,b,m)
+    x = range(11)
+    y = [m * i + b for i in x ]
+    pylab.plot(x,y)
+    pylab.show()
 
-if _name_=='_main_':
+if __name__ == '__main__':
     Linear_regression()

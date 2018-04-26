@@ -28,7 +28,7 @@ def linear_model_main(X_parameters,Y_parameters,predict_value):# Create Linear r
     predictions['predicted_value'] = predict_outcome
     return predictions
 
-X,Y = get_data('input_data.csv')
+X,Y = get_data('input_data1.csv')
 predictvalue = 700
 result = linear_model_main(X,Y,predictvalue)
 print ("Theta0 : " ,result['intercept'])
