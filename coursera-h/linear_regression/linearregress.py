@@ -67,7 +67,7 @@ class linearRegress(object):
         xMat = hstack((x0Mat, xMat))#extend x0=1 for each sample
         xTx = xMat.T*xMat
         if linalg.det(xTx) == 0.0:
-            print "This matrix is singular, cannot do inverse"
+            print ("This matrix is singular, cannot do inverse")
             #raise
         else:
             self.LRDict['OLS'] = xTx.I * (xMat.T*yMat)
@@ -89,7 +89,7 @@ class linearRegress(object):
         I[0][0] = 0;#w0 has no punish factor
         denom = xTx + I*lam
         if linalg.det(denom) == 0.0:
-            print "This matrix is singular, cannot do inverse"
+            print ("This matrix is singular, cannot do inverse")
             #raise()
         else:
             paraList = []
@@ -115,7 +115,7 @@ class linearRegress(object):
         elif solver == 'ridge':
             self.solver_ridge(xMat, yMat, **args)
         else:
-            print '%s solver not support'%solver
+            print ('%s solver not support'%solver)
             #raise()
             
     def __predict(self, x2predict, ws):
@@ -140,7 +140,7 @@ class linearRegress(object):
             #pdb.set_trace()
             return self.__predict(x2predict, ws)+yMean.getA()[0].tolist()[0]
         else:
-            print '%s solver not support'%solver
+            print ('%s solver not support'%solver)
             #raise()
             return None
           

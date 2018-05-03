@@ -80,5 +80,5 @@ if __name__  == '__main__':
     p.jsonDumps()
     p_l = objectLoadFromFile('p.json')
       
-    print 'the decoded obj type: %s, obj:%s' % (type(p_l),repr(p_l))
+    print ('the decoded obj type: %s, obj:%s' % (type(p_l),repr(p_l)))
     

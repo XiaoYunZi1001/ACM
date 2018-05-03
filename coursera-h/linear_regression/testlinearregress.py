@@ -50,7 +50,7 @@ def test_singleFeture():
 
     cor = corrcoef(mat(predicted),mat(yArray))
 
-    print 'cor: ',cor
+    print ('cor: ',cor)
     #pdb.set_trace()
 
     figure(1)
@@ -98,18 +98,18 @@ def test_mutipleFeture():
     predicted = testLR.predict(xArray[100:199],solver = 'OLS')
     error_OLS = rssError(array(yArray[100:199]), predicted)
     cor = corrcoef(mat(predicted),mat(yArray[100:199]))
-    print 'rss error with OLS', error_OLS
-    print 'correlated with OLS', cor
+    print ('rss error with OLS', error_OLS)
+    print ('correlated with OLS', cor)
     numTestPts = 30
     for i in range(numTestPts):
         testLR.regress(xArray[0:99], yArray[0:99], solver = 'ridge', **{'lam':exp(i-10)})
         predicted_r = testLR.predict(xArray[100:199],solver = 'ridge')
         error_OLS = rssError(array(yArray[100:199]), predicted_r)
-        print 'rss error with ridge', error_OLS, 'lam=', i
+        print ('rss error with ridge', error_OLS, 'lam=', i)
         if i==17:
-            print 'ws', testLR.LRDict['ridge'][0]
+            print ('ws', testLR.LRDict['ridge'][0])
         cor = corrcoef(mat(predicted_r),mat(yArray[100:199]))
-        print 'correlated with ridge ',cor
+        print ('correlated with ridge ',cor)
     #pdb.set_trace()
 
     testLR.regress(xArray[0:99], yArray[0:99], solver = 'ridge', **{'lam':1096.63315843})
