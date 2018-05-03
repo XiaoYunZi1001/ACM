@@ -47,9 +47,9 @@ def compute_gradient(b_current,m_current,data,learning_rate):
     # Vectorization implementation
     x = data[:,0]
     y = data[:,1]
-    b_gradient = -(2/ N)*(y - m_current * x - b_current)
+    b_gradient = -(1/ N)*(y - m_current * x - b_current)
     b_gradient = np.sum(b_gradient,axis=0)
-    m_gradient = -(2/ N) * x * (y - m_current * x - b_current)
+    m_gradient = -(1/ N) * x * (y - m_current * x - b_current)
     m_gradient = np.sum(m_gradient,axis=0)
     # update our b and m values using out partial derivations
 
