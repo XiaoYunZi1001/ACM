@@ -49,7 +49,7 @@ def plotBestFit(weights):
         plt.xlabel('X1'); plt.ylabel('X2')
         plt.show()
 
-# 向量
+# 期望算法避免迭代计算参数时的波动
 def stoGradAscent0(dataMatrix,classLabels):
     m,n = shape(dataMatrix)
     alpha = 0.01
@@ -60,5 +60,19 @@ def stoGradAscent0(dataMatrix,classLabels):
         weights = weights + alpha * error *dataMatrix[i]
     return weights
 
-def stocGradAscent1(dataMatrix,classLabels,numIlter = 150):
+def stocGradAscent1(dataMatrix,classLabels,numIter = 150):
+    m,n = shape(dataMatrix)
+    weights = ones(n)
+    for j in range(numIter):
+        dataIndex = list(range(m))
+        for i in range(m):
+            alpha = 4/(1.0+j+i)+0.01 # alpha每次迭代都调整 0.01常数项是为了保证多次迭代之后新数据仍然具有一定影响
+            # 避免参数严格下降也常见模拟退火算法等其他优化算法
+            randIndex = int(random.uniform(0,len(dataIndex)))# 通过随机选取样本更新回归系数
+            h = sigmod(sum(dataMatrix[randIndex]*weights))
+            error = classLabels[randIndex]-h
+            weights = weights + alpha*error*dataMatrix[randIndex]
+            del(dataIndex[randIndex])
+    return weights
+
 
