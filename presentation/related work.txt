@@ -1,0 +1,3 @@
+Battaglia P W, Pascanu R, Lai M, et al. Interaction Networks for Learning about Objects, Relations and Physics[J].arXiv:1612.00222,2016.
+
+Chang M B, Ullman T, Torralba A, et al. A Compositional Object-Based Approach to Learning Physical Dynamics[J].arXiv:1612.00341,2016.
