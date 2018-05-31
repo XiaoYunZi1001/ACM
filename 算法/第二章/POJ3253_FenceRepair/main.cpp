@@ -2,14 +2,16 @@
 #include <bits/stdc++.h>
 using namespace std;
 typedef long long ll;
-int N,L[50000];
+int N,L[50000];//输入
 int main()
 {
     cin >>N;
     for(int i=0;i<N;i++) cin>>L[i];
     ll ans = 0;
+    //直到计算到木板为1时为止
     while(N > 1)
     {
+        //求出最短板
         int mii1 = 0, mii2 = 1;
         if(L[mii1] > L[mii2]) swap(mii1,mii2);
         for(int i =2;i<N;i++)
