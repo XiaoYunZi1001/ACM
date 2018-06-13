@@ -17,7 +17,60 @@ int main()
         cin>>v[i];
     }
     cin>>W;
-    for(int i= n-1;i>=0;i--)
+    /*********/
+    for(int i=n-1;i>=0;i--)
+    {
+        for(int j=0;j<=W;j++)
+        {
+            if(j<w[i])
+            {
+                dp[i][j] = dp[i+1][j];
+            }
+            else
+            {
+                dp[i][j] = max(dp[i+1][j],dp[i][j-w[i]]+v[i]);
+            }
+        }
+    }
+    cout <<dp[0][W]<< endl;
+    /*********/
+    /*完全背包问题*/
+     /*****
+    for(int i=0;i<n;i++)
+    {
+        for(int j=0;j<=W;j++)
+        {
+            if(j<w[i])
+            {
+                dp[i+1][j] = dp[i][j];
+            }
+            else
+            {
+                dp[i+1][j] = max(dp[i][j],dp[i+1][j-w[i]]+v[i]);
+            }
+        }
+    }
+    cout <<dp[n][W]<< endl;
+    **/
+    /*********
+    for(int i=0;i<n;i++)
+    {
+        for(int j=0;j<=W;j++)
+        {
+            if(j<w[i])
+            {
+                dp[i+1][j] = dp[i][j];
+            }
+            else
+            {
+                dp[i+1][j] = max(dp[i][j],dp[i][j-w[i]]+v[i]);
+            }
+        }
+    }
+    cout <<dp[n][W]<< endl;
+    ***********/
+    /****
+    for(int i=n-1;i>=0;i--)
     {
         for(int j = 0;j <=W;j++)
         {
@@ -32,5 +85,12 @@ int main()
         }
     }
     cout <<dp[0][W]<< endl;
+    ****/
+    for(int i=0;i<=n;i++)
+    {
+        for(int j= 0;j<=W;j++)
+            cout<<dp[i][j]<<" ";
+        cout<<endl;
+    }
     return 0;
 }
